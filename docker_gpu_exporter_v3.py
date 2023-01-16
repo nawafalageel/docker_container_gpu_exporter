@@ -51,7 +51,7 @@ class CustomCollector(object):
 
                             """
     def run_bash_script(self):
-        return subprocess.run("./p2g.bash", stdout=subprocess.PIPE).stdout.decode('utf-8') #docker_gpu_exporter.get_running_process()
+        return subprocess.run("./p2g.bash", stdout=subprocess.PIPE).stdout.decode('utf-8')
     
         
     def split_list(self, list_a, chunk_size):

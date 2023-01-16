@@ -2,8 +2,11 @@
 ![Grafana example](Grafana_exmaple.png)
 ## Quick start
 Currently the exporter only works as a service (next will be containarized).
+
 1- Run ```python3 docker_gpu_exporter_v3.py```
-2- Check the  http://hostname:9066 to make sure it expose the metrics.
+
+2- Check the  http://hostname:9066 to make sure it exposes the metrics.
+
 3- Register ```hostname:9066``` to your Prometheus configration file.
 Prometheus configuration example:
 
@@ -36,5 +39,7 @@ Using a bash script to:
 
 ## TODO
 1- ~~Exprot metrics container GPU metrics~~
+
 2- Dockerizing (Require ```-v /var/run/docker.sock:/var/run/docker.sock``` and visiability to host GPU processes).
+
 3- Enhance Grafana dashboard.

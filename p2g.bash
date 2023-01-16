@@ -1,5 +1,22 @@
 #!/bin/bash -e
 
+Help() {
+
+        echo -e "Usage: <p2g.bash> [options] <No options required>"
+        echo -e ""
+        echo -e "Ouput description:"
+        echo -e "PID: PID that uses the GPU"
+        echo -e "CONTAINER_NAME: Container name that uses the GPU"
+        echo -e "GPU util: {GPU id} {PID} {SM utilization} {GPU Memory utilization}"
+        echo -e "GPU usage: GPU usage of the memory"
+
+}
+
+if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+  Help
+  exit 0
+fi
+
 my_pids=$(nvidia-smi | sed '1,/Processes:/d' | awk '{print $5}' | grep -v 'PID' | grep -v '|' | awk '!NF || !seen[$0]++')
 
 for pid in $my_pids; do
